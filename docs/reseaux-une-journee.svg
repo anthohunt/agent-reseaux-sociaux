@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="Space Grotesk, Inter, Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Une journée de l'agent Réseaux sociaux : quatre passages qui mesurent et préparent, le lot du soir dans le rapport du matin, oui ou non post par post, publication par un programme">
+  <defs>
+    <pattern id="grille" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24,0 H0 V24" fill="none" stroke="#ffffff" stroke-opacity="0.05"/></pattern>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c3d2f5"/></marker>
+    <marker id="j" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ffe45e"/></marker>
+  </defs>
+  <rect width="960" height="470" rx="14" fill="#123a8f"/>
+  <rect width="960" height="470" rx="14" fill="url(#grille)"/>
+  <text x="32" y="44" fill="#f4f7ff" font-size="20" font-weight="700">Une journée de l'agent Réseaux sociaux</text>
+  <text x="32" y="68" fill="#c3d2f5" font-size="13">mesure sans IA · au plus 4 posts par jour · rien ne part sans un oui pour ce post</text>
+  <text x="928" y="44" fill="#ffe45e" font-size="11" text-anchor="end" font-family="Space Mono, Consolas, Menlo, monospace">FIG. 01</text>
+
+  <!-- quatre passages -->
+  <rect x="32" y="96" width="196" height="80" rx="10" fill="#0d2f78" stroke="#ffffff" stroke-opacity="0.35"/>
+  <text x="48" y="122" fill="#f4f7ff" font-size="15" font-weight="700">8 h</text>
+  <text x="48" y="144" fill="#c3d2f5" font-size="12">mesure, analyse</text>
+  <text x="48" y="162" fill="#c3d2f5" font-size="12">médias du prochain lot</text>
+  <path d="M228,136 H254" stroke="#c3d2f5" stroke-width="2" marker-end="url(#b)"/>
+
+  <rect x="256" y="96" width="196" height="80" rx="10" fill="#0d2f78" stroke="#ffffff" stroke-opacity="0.35"/>
+  <text x="272" y="122" fill="#f4f7ff" font-size="15" font-weight="700">12 h</text>
+  <text x="272" y="144" fill="#c3d2f5" font-size="12">mesure, analyse</text>
+  <text x="272" y="162" fill="#c3d2f5" font-size="12">médias du prochain lot</text>
+  <path d="M452,136 H478" stroke="#c3d2f5" stroke-width="2" marker-end="url(#b)"/>
+
+  <rect x="480" y="96" width="196" height="80" rx="10" fill="#0d2f78" stroke="#ffffff" stroke-opacity="0.35"/>
+  <text x="496" y="122" fill="#f4f7ff" font-size="15" font-weight="700">17 h</text>
+  <text x="496" y="144" fill="#c3d2f5" font-size="12">mesure, analyse</text>
+  <text x="496" y="162" fill="#c3d2f5" font-size="12">médias du prochain lot</text>
+  <path d="M676,136 H702" stroke="#c3d2f5" stroke-width="2" marker-end="url(#b)"/>
+
+  <rect x="704" y="96" width="224" height="80" rx="10" fill="#0d2f78" stroke="#ffe45e" stroke-width="1.5"/>
+  <text x="720" y="122" fill="#ffe45e" font-size="15" font-weight="700">21 h : le lot du jour</text>
+  <text x="720" y="144" fill="#f4f7ff" font-size="12">au plus 4 posts</text>
+  <text x="720" y="162" fill="#f4f7ff" font-size="12">sur un seul sujet</text>
+
+  <!-- vers le rapport du matin -->
+  <path d="M816,176 V200 H222 V224" stroke="#ffe45e" stroke-width="2" fill="none" marker-end="url(#j)"/>
+  <text x="560" y="194" fill="#ffe45e" font-size="12">le lendemain matin</text>
+
+  <!-- rapport du matin -->
+  <rect x="32" y="226" width="380" height="124" rx="10" fill="#0d2f78" stroke="#ffffff" stroke-opacity="0.35"/>
+  <text x="48" y="252" fill="#f4f7ff" font-size="15" font-weight="700">Rapport du matin, post par post</text>
+  <text x="48" y="280" fill="#f4f7ff" font-size="12" font-family="Space Mono, Consolas, Menlo, monospace">[N1411-1] linkedin · carrousel</text>
+  <rect x="336" y="267" width="52" height="20" rx="5" fill="#ffe45e"/>
+  <text x="362" y="281" fill="#0d2f78" font-size="12" font-weight="700" text-anchor="middle">oui</text>
+  <text x="48" y="308" fill="#f4f7ff" font-size="12" font-family="Space Mono, Consolas, Menlo, monospace">[N1411-2] bluesky · image</text>
+  <rect x="336" y="295" width="52" height="20" rx="5" fill="none" stroke="#c3d2f5"/>
+  <text x="362" y="309" fill="#c3d2f5" font-size="12" font-weight="700" text-anchor="middle">non</text>
+  <text x="48" y="336" fill="#c3d2f5" font-size="12">avec les chiffres, l'analyse et les suggestions</text>
+
+  <!-- oui : publier.py -->
+  <path d="M412,277 H472" stroke="#ffe45e" stroke-width="2" marker-end="url(#j)"/>
+  <rect x="474" y="226" width="212" height="124" rx="10" fill="#0d2f78" stroke="#ffe45e" stroke-width="1.5"/>
+  <text x="490" y="252" fill="#ffe45e" font-size="15" font-weight="700" font-family="Space Mono, Consolas, Menlo, monospace">publier.py</text>
+  <text x="490" y="276" fill="#f4f7ff" font-size="12">un programme, pas l'agent</text>
+  <text x="490" y="296" fill="#c3d2f5" font-size="12">le texte enregistré,</text>
+  <text x="490" y="314" fill="#c3d2f5" font-size="12">pour ce oui seulement</text>
+  <text x="490" y="332" fill="#c3d2f5" font-size="12">3 essais au plus</text>
+
+  <!-- réseaux -->
+  <path d="M686,288 H712 V256 H738" stroke="#c3d2f5" stroke-width="2" fill="none" marker-end="url(#b)"/>
+  <path d="M712,288 V325 H738" stroke="#c3d2f5" stroke-width="2" fill="none" marker-end="url(#b)"/>
+  <rect x="740" y="226" width="188" height="66" rx="10" fill="#0d2f78" stroke="#ffffff" stroke-opacity="0.35"/>
+  <text x="756" y="247" fill="#f4f7ff" font-size="13" font-weight="700">Par API</text>
+  <text x="756" y="266" fill="#c3d2f5" font-size="12">Mastodon, Bluesky,</text>
+  <text x="756" y="283" fill="#c3d2f5" font-size="12">dev.to, YouTube</text>
+  <rect x="740" y="300" width="188" height="50" rx="10" fill="#0d2f78" stroke="#ffffff" stroke-opacity="0.35"/>
+  <text x="756" y="321" fill="#f4f7ff" font-size="13" font-weight="700">Par relais navigateur</text>
+  <text x="756" y="339" fill="#c3d2f5" font-size="12">X, page LinkedIn</text>
+
+  <!-- non : mémoire -->
+  <path d="M222,350 V384" stroke="#c3d2f5" stroke-width="2" marker-end="url(#b)"/>
+  <rect x="32" y="386" width="380" height="56" rx="10" fill="#0d2f78" stroke="#ffffff" stroke-opacity="0.35"/>
+  <text x="48" y="410" fill="#f4f7ff" font-size="13" font-weight="700">non : noté dans sa mémoire</text>
+  <text x="48" y="429" fill="#c3d2f5" font-size="12">une proposition refusée n'est pas reproposée</text>
+
+  <!-- preuve -->
+  <path d="M580,350 V384" stroke="#c3d2f5" stroke-width="2" marker-end="url(#b)"/>
+  <rect x="474" y="386" width="454" height="56" rx="10" fill="#0d2f78" stroke="#ffffff" stroke-opacity="0.35"/>
+  <text x="490" y="410" fill="#f4f7ff" font-size="13" font-weight="700">Preuve gardée : le lien du post publié</text>
+  <text x="490" y="429" fill="#c3d2f5" font-size="12">ou, après 3 échecs, un signalement à la maintenance</text>
+</svg>

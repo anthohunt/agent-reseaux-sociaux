@@ -1,0 +1,9 @@
+{
+ "_note": "Minimum d'effort par passage de l'agent Réseaux sociaux (compté par compter-effort.py dans la session). actions = appels d'outils ; pages = adresses ingevision.cloud distinctes ; recherches = recherches en ligne.",
+ "matin": {"actions": 25, "pages": 2, "recherches": 2, "stories": 0, "depots": 0},
+ "midi": {"actions": 25, "pages": 2, "recherches": 2, "stories": 0, "depots": 0},
+ "apresmidi": {"actions": 25, "pages": 2, "recherches": 2, "stories": 0, "depots": 0},
+ "soir": {"actions": 45, "pages": 3, "recherches": 3, "stories": 0, "depots": 1},
+ "samedi": {"actions": 70, "pages": 3, "recherches": 3, "stories": 0, "depots": 1},
+ "reprises_max": 1
+}

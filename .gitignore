@@ -1,0 +1,12 @@
+mesures/
+rapports/
+validations/
+envoyes/
+medias/
+logs/
+w/
+verrous/
+memoire.md
+__pycache__/
+*.local
+*.local.md

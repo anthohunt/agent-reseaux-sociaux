@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "Bash|Read|Grep|Glob", "hooks": [ { "type": "command", "command": "python \"$CLAUDE_PROJECT_DIR/.claude/garde-arret.py\"" } ] }
+    ]
+  }
+}
