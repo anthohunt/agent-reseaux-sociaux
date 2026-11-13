@@ -106,7 +106,10 @@ def relais(p, medias, reseau):
     for m in medias[:4]:
         subprocess.run(["scp", "-q", str(m), f"tour:relais-x/medias/{m.name}"], timeout=120, check=True); distants.append(f"~/relais-x/medias/{m.name}")
     ou = "sur X, compte @ingevisioncloud" if reseau == "x" else "sur la PAGE LinkedIn Ingevision (administration : " + REGLAGES.get("LINKEDIN_ADMIN", "page d'administration de la page") + "), jamais le profil personnel"
-    consigne = (f"Publie {ou} le texte exact ci-dessous, sans en changer un caractère" + (f", avec ces images : {', '.join(distants)}" if distants else "")
+    pdf = [d for d in distants if d.lower().endswith(".pdf")]; img = [d for d in distants if d not in pdf]
+    joint = ((f", avec ces images : {', '.join(img)}" if img else "")
+             + (f", avec ce PDF publié en post « document » (bouton « Ajouter un document » de LinkedIn, jamais en image), titre du document : « {p.get('titre') or p['texte'].splitlines()[0][:60]} » : {pdf[0]}" if pdf else ""))
+    consigne = (f"Publie {ou} le texte exact ci-dessous, sans en changer un caractère" + joint
                 + f". Vérifie le post publié puis donne son lien seul sur la dernière ligne, après « LIEN : ».\n\nTEXTE :\n{p['texte']}")
     r = subprocess.run(["/home/claude/agents-site/relais-x.sh", consigne], capture_output=True, text=True, timeout=1800)
     m = re.findall(r"LIEN\s*:\s*(https?://\S+)", r.stdout)
