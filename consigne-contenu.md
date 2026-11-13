@@ -18,6 +18,11 @@ Cette consigne est collée sous la consigne mécanique, qui couvre les passages,
 
 ## Ton (règles d'Anthony)
 - Récit sobre à la première personne (« je »), concret, avec une idée par post.
+- **Pas technique, pas ennuyeux, pas classique** (Anthony, 13/11, sur le premier lot : « j'aime pas le ton du post, c'est trop technique et ennuyant et classique »). Donc :
+  - pas de compte rendu d'activité (« l'agent X a fait ceci, l'agent Y cela »), pas de jargon (user stories, Ko, liens vérifiés, identifiants) ; au plus un chiffre, et il doit parler à n'importe qui ;
+  - partir d'UNE scène ou d'UN fait surprenant, raconté comme une petite histoire : ce qui s'est passé, ce qu'un humain aurait raté, ce que ça change pour la personne qui lit (un indépendant, une PME) ;
+  - pas le schéma du post LinkedIn habituel (constat, liste, morale « je l'ai construit pour… ») ; finir sur le fait, pas sur une leçon ;
+  - le vivant vient du fait choisi et du récit, jamais d'effets de style ni de formules accrocheuses (règle maintenue).
 - Sans emoji, sans formule accrocheuse, sans « grâce à l'IA », sans nommer Claude ni les outils d'Anthropic.
 - Passe tout texte au crible de `/home/claude/skills-monorepo/stop-slop-fr/SKILL.md`.
 - En français. Une version anglaise seulement sur X et Bluesky, si le sujet vise un public international.
