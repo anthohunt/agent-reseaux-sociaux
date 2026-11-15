@@ -7,7 +7,7 @@ Four times a day, it measures the audience of the Ingevision accounts and prepar
 ```mermaid
 %%{init: {"flowchart": {"curve": "step"}}}%%
 flowchart TD
-    A["8 am, 12 pm, 5 pm, 9 pm (Paris): measure, without AI"] --> B["Claude on a loaned workstation: analysis, images and videos"]
+    A["8 am, 12 pm, 5 pm, 9 pm (Paris): measure, without AI"] --> B["Claude on a compute workstation: analysis, images and videos"]
     B -->|"8 am, 12 pm, 5 pm"| C["Run report: figures and suggestions"]
     B -->|"9 pm"| D["Batch of the day: at most 4 posts on one topic"]
     C --> E["Morning report"]
@@ -64,14 +64,14 @@ Pourquoi : montrer un agent qui travaille seul — Mesure : clics vers la fiche 
 - Change a text after the yes: a changed text is a new proposal.
 - Name a client: the names to keep quiet are in a local file, outside the repository.
 
-**What the code holds, and what only the instructions hold.** The code holds the yes: `publier.py` only sends a proposal whose validation says `oui`, only once, and sends the text stored in the report. The agent has no access to the server at all: it works in a copy on a borrowed workstation, receives what it needs to read in `sources/` (read-only copies), and its media come back on their own after the run. It therefore cannot reach `publier.py` or the keys. A hook (`garde/garde-arret.py`) also refuses any stopping of programs by name. Everything else in this list (no likes, no comments, no personal profile, no Reddit, at most four posts) holds by the instructions. For X and the LinkedIn page, "the exact text" is asked of the relay, which is itself an agent driving a browser; no program compares the result.
+**What the code holds, and what only the instructions hold.** The code holds the yes: `publier.py` only sends a proposal whose validation says `oui`, only once, and sends the text stored in the report. The agent has no access to the server at all: it works in a copy on a compute workstation, receives what it needs to read in `sources/` (read-only copies), and its media come back on their own after the run. It therefore cannot reach `publier.py` or the keys. A hook (`garde/garde-arret.py`) also refuses any stopping of programs by name. Everything else in this list (no likes, no comments, no personal profile, no Reddit, at most four posts) holds by the instructions. For X and the LinkedIn page, "the exact text" is asked of the relay, which is itself an agent driving a browser; no program compares the result.
 
 ## Requirements
 
 Taken from `lancer.sh`, `mesurer.py`, `publier.py` and `deposer.py`:
 
 - A Linux server with `bash`, `cron`, `flock`, `rsync`, `perl`, `python3`, GNU `date`, `ssh` and `scp`. It runs the measures, the runs and the publishing.
-- A launcher that starts a Claude Code agent on a loaned workstation and returns code 75 when none is free, an account selector and the token files it reads. The runs wait in the same queue as other agents (`/tmp/agents-site.lock`).
+- A launcher that starts a Claude Code agent on a compute workstation and returns code 75 when none is free, an account selector and the token files it reads. The runs wait in the same queue as other agents (`/tmp/agents-site.lock`).
 - The workstation: [Claude Code](https://code.claude.com/docs/en/overview), Node.js and npm (Playwright 1.60.0 is installed at each run), and Python for the hook. No access back to the server is needed.
 - The site's web server log, read with `docker logs` over SSH (target in `VPS_ROOT` or `~/.config/agents/vps-root`).
 - API keys in `~/.config/secrets/ingevision/`: `mastodon.key`, `bluesky.key`, `devto.key`, `youtube.key`. They are read by the programs and never shown.
@@ -144,7 +144,7 @@ Quatre fois par jour, il mesure l'audience des comptes Ingevision et prépare de
 ```mermaid
 %%{init: {"flowchart": {"curve": "step"}}}%%
 flowchart TD
-    A["8 h, 12 h, 17 h, 21 h (Paris) : mesure, sans IA"] --> B["Claude sur un poste prêté : analyse, images et vidéos"]
+    A["8 h, 12 h, 17 h, 21 h (Paris) : mesure, sans IA"] --> B["Claude sur un poste de calcul : analyse, images et vidéos"]
     B -->|"8 h, 12 h, 17 h"| C["Rapport du passage : chiffres et suggestions"]
     B -->|"21 h"| D["Lot du jour : au plus 4 posts sur un sujet"]
     C --> E["Rapport du matin"]
@@ -199,14 +199,14 @@ Pourquoi : montrer un agent qui travaille seul — Mesure : clics vers la fiche 
 - Changer un texte après le oui : un texte changé est une nouvelle proposition.
 - Nommer un client : les noms à taire sont dans un fichier local, hors dépôt.
 
-**Ce que le code garantit, et ce qui ne tient qu'à la consigne.** Le code tient le oui : `publier.py` n'envoie qu'une proposition dont la validation dit `oui`, une seule fois, et envoie le texte enregistré dans le rapport. L'agent n'a aucun accès au serveur : il travaille dans une copie sur un poste prêté, reçoit ce qu'il doit lire dans `sources/` (copies en lecture seule), et ses médias reviennent seuls après le passage. Il ne peut donc atteindre ni `publier.py` ni les clés. Un crochet (`garde/garde-arret.py`) refuse en plus tout arrêt de programmes par leur nom. Tout le reste de cette liste (pas de « j'aime », pas de commentaire, pas de profil personnel, pas de Reddit, au plus quatre posts) tient à la consigne. Pour X et la page LinkedIn, « le texte exact » est demandé au relais, qui est lui-même un agent qui pilote un navigateur ; aucun programme ne compare le résultat.
+**Ce que le code garantit, et ce qui ne tient qu'à la consigne.** Le code tient le oui : `publier.py` n'envoie qu'une proposition dont la validation dit `oui`, une seule fois, et envoie le texte enregistré dans le rapport. L'agent n'a aucun accès au serveur : il travaille dans une copie sur un poste de calcul, reçoit ce qu'il doit lire dans `sources/` (copies en lecture seule), et ses médias reviennent seuls après le passage. Il ne peut donc atteindre ni `publier.py` ni les clés. Un crochet (`garde/garde-arret.py`) refuse en plus tout arrêt de programmes par leur nom. Tout le reste de cette liste (pas de « j'aime », pas de commentaire, pas de profil personnel, pas de Reddit, au plus quatre posts) tient à la consigne. Pour X et la page LinkedIn, « le texte exact » est demandé au relais, qui est lui-même un agent qui pilote un navigateur ; aucun programme ne compare le résultat.
 
 ### Ce qu'il faut
 
 Tiré de `lancer.sh`, `mesurer.py`, `publier.py` et `deposer.py` :
 
 - Un serveur Linux avec `bash`, `cron`, `flock`, `rsync`, `perl`, `python3`, `date` de GNU, `ssh` et `scp`. Il lance les mesures, les passages et la publication.
-- Un lanceur qui démarre un agent Claude Code sur un poste prêté et rend le code 75 quand aucun n'est libre, un sélecteur de compte et les fichiers de jetons qu'il lit. Les passages attendent dans la même file que d'autres agents (`/tmp/agents-site.lock`).
+- Un lanceur qui démarre un agent Claude Code sur un poste de calcul et rend le code 75 quand aucun n'est libre, un sélecteur de compte et les fichiers de jetons qu'il lit. Les passages attendent dans la même file que d'autres agents (`/tmp/agents-site.lock`).
 - Le poste : [Claude Code](https://code.claude.com/docs/en/overview), Node.js et npm (Playwright 1.60.0 est installé à chaque passage), et Python pour le crochet. Aucun accès vers le serveur n'est nécessaire.
 - Le journal du serveur web du site, lu par `docker logs` en SSH (cible dans `VPS_ROOT` ou `~/.config/agents/vps-root`).
 - Les clés d'API dans `~/.config/secrets/ingevision/` : `mastodon.key`, `bluesky.key`, `devto.key`, `youtube.key`. Les programmes les lisent sans jamais les afficher.
