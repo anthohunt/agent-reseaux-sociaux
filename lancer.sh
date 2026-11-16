@@ -4,8 +4,8 @@
 # formats : consigne-contenu.md (tenue par la session Site). Chaque post est validé un par un par Anthony (choix A, LinkedIn
 # compris) ; c'est publier.py qui publie, jamais l'agent.
 # Passages (heure de Paris) : matin 8 h, midi 12 h, apresmidi 17 h, soir 21 h (lot du jour, rapport du matin suivant) ;
-# le samedi soir est un passage long (« samedi » : reel de la semaine, vidéo du mois). Claude tourne sur un poste IOMEGA
-# prêté (perso-claude, sans trace) ; s'il n'y a pas de poste libre, le passage est retenté au cron suivant (toutes les
+# le samedi soir est un passage long (« samedi » : reel de la semaine, vidéo du mois). Claude tourne sur un poste de calcul
+# IOMEGA (perso-claude, sans trace) ; s'il n'y a pas de poste libre, le passage est retenté au cron suivant (toutes les
 # 30 min pendant 2 h), une marque logs/<date>-<passage>.fait évite les doublons.
 # Usage : lancer.sh matin|midi|apresmidi|soir   (FORCE=1 : hors heure ; ESSAI=1 : petit modèle, rien ne revient)
 set -u
@@ -17,7 +17,7 @@ case "$P" in matin) HP="08 09";; midi) HP="12 13";; apresmidi) HP="17 18";; soir
 mkdir -p "$R/logs" "$R/rapports/$J" "$R/validations" "$R/envoyes" "$R/medias" "$R/w" "$R/verrous"; chmod 700 "$R/verrous"
 [ "${FORCE:-0}" = 1 ] || [ ! -e "$R/logs/$J-$P.fait" ] || exit 0
 exec 9>"$R/verrous/passage.lock"; flock -n 9 || exit 1
-# Un seul poste prêté jusqu'au 15/11 (PARC) : on prend sa place dans la file des agents du site (même verrou, 1 h d'attente au plus)
+# Un seul poste de calcul jusqu'au 15/11 (PARC) : on prend sa place dans la file des agents du site (même verrou, 1 h d'attente au plus)
 exec 8>/tmp/agents-site.lock; flock -w 3600 8 || { echo "$(date -u +%FT%TZ) file des agents du site trop longue : nouvel essai au cron suivant" >> "$R/logs/$J-$P.log"; exit 6; }
 # le soir, on ne démarre plus après 23 h (heure de Paris) : la nuit des agents du site passe d'abord
 if { [ "$P" = soir ] || [ "$P" = samedi ]; } && [ "${FORCE:-0}" != 1 ] && [ "$(TZ=Europe/Paris date +%H)" -ge 23 ]; then
