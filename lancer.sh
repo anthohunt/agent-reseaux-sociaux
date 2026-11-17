@@ -4,8 +4,8 @@
 # formats : consigne-contenu.md (tenue par la session Site). Chaque post est validé un par un par Anthony (choix A, LinkedIn
 # compris) ; c'est publier.py qui publie, jamais l'agent.
 # Passages (heure de Paris) : matin 8 h, midi 12 h, apresmidi 17 h, soir 21 h (lot du jour, rapport du matin suivant) ;
-# le samedi soir est un passage long (« samedi » : reel de la semaine, vidéo du mois). Claude tourne sur un poste de calcul
-# IOMEGA (perso-claude, sans trace) ; s'il n'y a pas de poste libre, le passage est retenté au cron suivant (toutes les
+# le samedi soir est un passage long (« samedi » : reel de la semaine, vidéo du mois). Claude tourne sur un poste de calcul ;
+# s'il n'y a pas de poste libre, le passage est retenté au cron suivant (toutes les
 # 30 min pendant 2 h), une marque logs/<date>-<passage>.fait évite les doublons.
 # Usage : lancer.sh matin|midi|apresmidi|soir   (FORCE=1 : hors heure ; ESSAI=1 : petit modèle, rien ne revient)
 set -u
@@ -61,7 +61,7 @@ lance() {
   RC=$?; log "claude fini : code $RC"
 }
 lance "$R/logs/$J-$P.consigne.md" --session-id
-if [ "$RC" = 75 ]; then log "aucun poste IOMEGA libre : nouvel essai au cron suivant"; rm -rf "$D"; exit 6; fi
+if [ "$RC" = 75 ]; then log "aucun poste de calcul libre : nouvel essai au cron suivant"; rm -rf "$D"; exit 6; fi
 if [ "${ESSAI:-0}" != 1 ]; then
   for n in $(seq 1 "$(python3 -c "import json;print(json.load(open('$R/effort.json'))['reprises_max'])")"); do
     python3 "$R/compter-effort.py" "$P" "$J" "$SESSF" >> "$L" 2>&1 && break

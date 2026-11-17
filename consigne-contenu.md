@@ -40,7 +40,7 @@ Cette consigne est collée sous la consigne mécanique, qui couvre les passages,
 
 Rythme : au plus 1 lot par jour à valider, soit au plus 4 propositions par passage. Les autres passages servent à mesurer, analyser et préparer les médias. Reddit n'est jamais utilisé.
 
-## Fabrication des médias (sur le poste IOMEGA du passage, jamais sur le VPS)
+## Fabrication des médias (sur le poste de calcul du passage, jamais sur le VPS)
 - **Charte** : bleu, jaune et blanc seulement, polices du site (Space Grotesk, Space Mono). Le style est celui du site : plans bleus, traits fins, figures numérotées « FIG. 0N ».
 - **Images et carrousels** : pars des scènes animées des agents du site (`build/agents-art/<agent>.js`, moteur `_moteur.js`), des captures du site en ligne et des schémas des fiches.
   - Rendu par un navigateur sans tête : une scène figée à un moment parlant, puis le texte en surimpression.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Crochet PreToolUse de l'agent Réseaux (poste IOMEGA) :
+"""Crochet PreToolUse de l'agent Réseaux (poste de calcul) :
 - refuse tout arrêt de programmes par leur nom (pkill, killall, taskkill /IM, Stop-Process -Name), y compris par ssh ;
 - refuse toute publication et tout accès aux clés : c'est publier.py, lancé après le oui d'Anthony, qui publie,
   jamais l'agent (publier.py, relais-x.sh, dossiers de secrets, fichiers de jetons)."""
